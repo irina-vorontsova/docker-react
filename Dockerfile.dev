@@ -3,14 +3,7 @@ FROM node:alpine
 WORKDIR '/app'
 
 COPY package.json .
-ENV http_proxy http://proxy-europe.int.kn:8080
-ENV https_proxy http://proxy-europe.int.kn:8080
-RUN set HTTP_PROXY=http://proxy-europe.int.kn:8080/
-RUN set HTTPS_PROXY=http://proxy-europe.int.kn:8080/
-RUN npm config set http-proxy http://proxy-europe.int.kn:8080
-RUN npm config set https-proxy http://proxy-europe.int.kn:8080
-RUN npm config set proxy http://proxy-europe.int.kn:8080
-RUN npm --verbose -g install 
+RUN npm --verbose install
 
 COPY . .
 
